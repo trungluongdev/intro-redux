@@ -5,6 +5,7 @@ export const addToDo = (nextTodoId, text) => async (dispatch) => {
   try {
     const todo = { id: `${nextTodoId}`, text, completed: false };
     const res = await apiService.post("/todos", todo);
+    console.log(res);
     dispatch({ type: ADD_TODO, payload: { id: nextTodoId, text } });
   } catch (error) {
     console.log(error);
@@ -26,6 +27,7 @@ export const toggleTodo = (todo) => async (dispatch) => {
       ...todo,
       completed: !todo.completed,
     });
+    console.log(res);
     dispatch({
       type: TOGGLE_TODO,
       payload: { id: todo.id },

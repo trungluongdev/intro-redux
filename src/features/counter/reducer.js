@@ -13,7 +13,6 @@ const counterReducer = (state = initialState, action) => {
       return { count: state.count - 1 };
     default:
       return state;
-      break;
   }
 };
 
