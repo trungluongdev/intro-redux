@@ -3,7 +3,7 @@ import apiService from "../../app/apiService";
 
 export const addToDo = (nextTodoId, text) => async (dispatch) => {
   try {
-    const todo = { id: nextTodoId, text, completed: false };
+    const todo = { id: `${nextTodoId}`, text, completed: false };
     const res = await apiService.post("/todos", todo);
     dispatch({ type: ADD_TODO, payload: { id: nextTodoId, text } });
   } catch (error) {
